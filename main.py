@@ -9,6 +9,7 @@ client = TelegramClient('name', api_id, api_hash)
 async def main():
     i = 0
     while i < 5:
+        i += 1
         await client.send_message(-1001461743664, 'Test spam block chat')
         time.sleep(2)
 
