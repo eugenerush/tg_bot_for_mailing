@@ -10,7 +10,6 @@ async def main():
     i = 0
     while i < 5:
         await client.send_message(-1001461743664, 'Test spam block chat')
-        await client.send_file(-1001461743664, 'C:/Users/Stex/Desktop/tg_bot/photo.jpg')
         time.sleep(2)
 
 
