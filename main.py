@@ -9,7 +9,7 @@ def start(message):
     bt = types.InlineKeyboardMarkup()
     send = types.InlineKeyboardButton(text='Начать рассылку', callback_data='dog')
     bt.add(send)
-    bot.send_message(message.chat.id, 'Нажми на кнопку и рассылка начнется через пару секунд', reply_markup=bt)
+    bot.send_message(message.chat.id, 'Нажми на кнопку и рассылка начнется через пару second', reply_markup=bt)
 
 
 bot.polling()
