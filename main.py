@@ -21,15 +21,15 @@ text = t.read()
 
 async def spam():
     #  s = open('chats.txt', 'r')
-    f = open('output.txt', 'r')
-    i = f.readline()
     while True:
+        f = open('output.txt', 'r')
+        i = f.readline()
         #  channel = s.readline()
         if i == 'start_text_send':
             await client.send_message('maykovskiy', 'Spam text message')
             time.sleep(3)
         else:
-            pass
+            continue
 
 
 with client:
