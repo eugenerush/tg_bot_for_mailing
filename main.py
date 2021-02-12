@@ -23,13 +23,11 @@ async def spam():
     #  s = open('chats.txt', 'r')
     f = open('output.txt', 'r')
     i = f.readline()
-    s = 0
-    while s <= 5:
+    while True:
         #  channel = s.readline()
         if i == 'start_text_send':
             await client.send_message('maykovskiy', 'Spam text message')
-            s += 1
-            time.sleep(1)
+            time.sleep(3)
         else:
             pass
 
