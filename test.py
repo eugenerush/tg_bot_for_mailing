@@ -1,44 +1,36 @@
-from aiogram import Bot, types
-from aiogram.dispatcher import Dispatcher
-from aiogram.utils import executor
-from aiogram.types import ReplyKeyboardRemove, ReplyKeyboardMarkup, KeyboardButton
+from telethon.sync import TelegramClient
+from telethon.tl.functions.channels import JoinChannelRequest
+import time
+
+api_id = 3636832
+api_hash = '775dbb2c1edce433a4dac365f78a7faa'
+client = TelegramClient('user', api_id, api_hash)
+t = open('text.txt', 'r', encoding='utf-8')
+text = t.read()
 
 
-bot = Bot(token='1506036423:AAF98ww6EdcLGPt2qqkbsQJcoDfvoNxPuB8')
-dp = Dispatcher(bot)
-btn_start = KeyboardButton('Привет! 👋, Выбери, что ты хочешь сделать.')
-btn_start_send = KeyboardButton('/start_send')
-btn_stop_send = KeyboardButton('/stop_send')
-btn_change = KeyboardButton('/change_text')
-greet_kb = ReplyKeyboardMarkup(resize_keyboard=True).add(btn_start).add(btn_start_send, btn_stop_send)
+'''async def main():
+    f = open('chats.txt', 'r')
+    i = 0
+    while i <= 155:
+        channel = f.readline()
+        await client(JoinChannelRequest(channel))
+        i += 1
+        time.sleep(5)'''
 
 
-@dp.message_handler(commands=['start'])
-async def process_start_command(message: types.Message):
-    await bot.send_message(message.from_user.id, 'Старт', reply_markup=greet_kb)
+async def spam():
+    #  s = open('chats.txt', 'r')
+    f = open('output.txt', 'r')
+    i = f.readline()
+    while True:
+        #  channel = s.readline()
+        if i == 'start_text_send':
+            await client.send_message('maykovskiy', 'Spam text message')
+            time.sleep(15)
+        else:
+            pass
 
 
-@dp.message_handler(commands=['start_send'])
-async def process_start_send_command(message: types.Message):
-    f = open('output.txt', 'r+')
-    f.write('start_text_send')
-    await bot.send_message(message.from_user.id, 'Рассылка вот-вот начнется', reply_markup=greet_kb)
-
-
-@dp.message_handler(commands=['stop_send'])
-async def process_stop_send_command(message: types.Message):
-    f = open('output.txt', 'r+')
-    f.write('stop_text_send')
-    await bot.send_message(message.from_user.id, 'Рассылка становлена', reply_markup=greet_kb)
-
-
-@dp.message_handler(commands=['change_text'])
-async def process_change_command(message: types.Message):
-    f = open('text.txt', 'r', encoding='utf-8')
-    text = f.read()
-    await bot.send_message(message.from_user.id, 'Отправь мне новый текст\n\tВот старый:\n' + text)
-    f.write(message.text)
-
-
-if __name__ == '__main__':
-    executor.start_polling(dp)
+with client:
+    client.loop.run_until_complete(spam())
