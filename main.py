@@ -1,18 +1,35 @@
 from telethon.sync import TelegramClient
-from spam_part import change_text
+from telethon.tl.functions.channels import JoinChannelRequest
 import time
 
-api_id = 1200079
-api_hash = 'e278d876a0cfdca2dc7705e1ec2f9d55'
-client = TelegramClient('name', api_id, api_hash)
+api_id = 3636832
+api_hash = '775dbb2c1edce433a4dac365f78a7faa'
+client = TelegramClient('user', api_id, api_hash)
+t = open('text.txt', 'r', encoding='utf-8')
+text = t.read()
+
+
+'''async def main():
+    f = open('chats.txt', 'r')
+    i = 0
+    while i <= 155:
+        channel = f.readline()
+        await client(JoinChannelRequest(channel))
+        i += 1
+        time.sleep(5)'''
 
 
 async def spam():
-    i = 0
-    while i < 5:
-        i += 1
-        await client.send_message(-1001461743664, 'Test spam block chat')
-        #  time.sleep(2)
+    #  s = open('chats.txt', 'r')
+    f = open('output.txt', 'r')
+    i = f.readline()
+    while True:
+        #  channel = s.readline()
+        if i == 'start_text_send':
+            await client.send_message('maykovskiy', 'Spam text message')
+            time.sleep(15)
+        else:
+            pass
 
 
 with client:
