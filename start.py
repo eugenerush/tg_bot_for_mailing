@@ -1,4 +1,4 @@
-import subprocess as sb
+import subprocess
 
-sb.Popen('python test.py')
-sb.Popen('python main.py')
+subprocess.Popen("python test.py", shell=True)
+subprocess.Popen("python main.py", shell=True)
