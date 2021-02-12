@@ -2,7 +2,6 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from aiogram.types import ReplyKeyboardRemove, ReplyKeyboardMarkup, KeyboardButton
-import main
 
 
 bot = Bot(token='1506036423:AAF98ww6EdcLGPt2qqkbsQJcoDfvoNxPuB8')
