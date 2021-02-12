@@ -40,5 +40,4 @@ async def process_change_command(message: types.Message):
     f.write(message.text)
 
 
-if __name__ == '__main__':
-    executor.start_polling(dp)
+executor.start_polling(dp)
