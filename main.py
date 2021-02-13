@@ -26,7 +26,7 @@ async def spam():
         i = f.readline()
         #  channel = s.readline()
         if i == 'start_text_send':
-            await client.send_message('NN_Maxim_Kozlov', text)
+            await client.send_message('maykovskiy', text)
             time.sleep(3)
         else:
             continue
