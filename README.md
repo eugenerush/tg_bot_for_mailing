@@ -1,1 +1,1 @@
-# tg_bot
+# tg_bot_for_mailing
