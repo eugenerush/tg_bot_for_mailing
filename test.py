@@ -4,7 +4,7 @@ from aiogram.utils import executor
 from aiogram.types import ReplyKeyboardRemove, ReplyKeyboardMarkup, KeyboardButton
 
 
-bot = Bot(token='1506036423:AAF98ww6EdcLGPt2qqkbsQJcoDfvoNxPuB8')
+bot = Bot(token='token')
 dp = Dispatcher(bot)
 btn_start = KeyboardButton('Привет! 👋, Выбери, что ты хочешь сделать.')
 btn_start_send = KeyboardButton('/start_send')
