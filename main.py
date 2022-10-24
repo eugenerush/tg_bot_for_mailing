@@ -3,8 +3,8 @@ import time
 import random
 from list import chat_id
 
-api_id = 3636832
-api_hash = '775dbb2c1edce433a4dac365f78a7faa'
+api_id = id
+api_hash = 'hash'
 client = TelegramClient('user', api_id, api_hash)
 t = open('text.txt', 'r', encoding='utf-8')
 text = t.read()
@@ -20,10 +20,10 @@ async def spam():
             await client.send_message(chat_id[n], text)
             n += 1
             time.sleep(random.randrange(3, 5, 1))
-            await client.send_message('maykovskiy', 'send ' + str(n) + ' from 122')
+            await client.send_message('user', 'send ' + str(n) + ' from 122')
             time.sleep(random.randrange(3, 8, 1))
-            if chat_id[n] == -1001459706290:
-                await client.send_message('maykovskiy', 'stop sleep wait')
+            if chat_id[n] == chat_id:
+                await client.send_message('user', 'stop sleep wait')
                 time.sleep(13650)
             else:
                 continue
